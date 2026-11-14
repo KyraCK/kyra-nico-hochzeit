@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Kyra &amp; Nico · 17. April 2027</title>
+<meta name="description" content="Wir heiraten am 17. April 2027 in Stuttgart.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%9C%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F7F2EA;
+    --paper: #FBF8F3;
+    --lilac: #B8A2D8;
+    --lilac-soft: #E7DEF3;
+    --plum: #3F2A47;
+    --plum-soft: #6E5677;
+    --sage: #7F9C78;
+    --line: #DCD2E6;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--plum);
+    font: 400 17px/1.6 "Jost", system-ui, sans-serif;
+  }
+  img { max-width: 100%; height: auto; display: block; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+
+  /* Navigation */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(247, 242, 234, .92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav ul {
+    list-style: none; margin: 0 auto; padding: 12px 16px;
+    display: flex; gap: 22px; justify-content: center; flex-wrap: wrap;
+    max-width: 760px;
+  }
+  nav a {
+    color: var(--plum); text-decoration: none;
+    font-size: 12px; letter-spacing: .22em; text-transform: uppercase;
+  }
+  nav a:hover { color: var(--sage); }
+
+  /* Hero */
+  .hero { padding: 40px 0 24px; }
+  .card {
+    position: relative;
+    background: var(--paper);
+    margin: 0 auto;
+    max-width: 560px;
+    padding: 56px 32px 0;
+    text-align: center;
+  }
+  .card .frame {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    pointer-events: none;
+  }
+  .arch { width: 240px; margin: 0 auto -6px; display: block; }
+  .arch text {
+    font-family: "Jost", sans-serif; font-size: 15px; letter-spacing: .42em;
+    fill: var(--sage); text-transform: uppercase;
+  }
+  h1 {
+    font-family: "Fraunces", Georgia, serif; font-weight: 300;
+    font-size: clamp(56px, 13vw, 92px); line-height: .95;
+    margin: 6px 0 0; color: var(--plum);
+  }
+  h1 .amp { font-style: italic; color: var(--lilac); font-size: .8em; }
+  .date {
+    margin: 22px 0 0;
+    font-size: 13px; letter-spacing: .3em; text-transform: uppercase;
+  }
+  .date strong { font-weight: 500; }
+  .photos {
+    position: relative; margin: 26px auto 0; max-width: 280px; padding-bottom: 40px;
+  }
+  .photos .couple { width: 78%; margin: 0 auto; }
+  .lemmy-spot {
+    display: flex; align-items: flex-end; justify-content: center; gap: 14px;
+    margin: 28px auto 0;
+  }
+  .lemmy-spot img { width: 150px; transform: rotate(-3deg); }
+  .lemmy-spot p {
+    margin: 0 0 18px; max-width: 220px;
+    font-family: "Fraunces", serif; font-style: italic; font-size: 19px; color: var(--plum-soft);
+  }
+  .scribble-note { display: none; }
+  .countdown {
+    text-align: center; margin: 28px 0 0;
+    font-family: "Fraunces", serif; font-style: italic; font-size: 20px;
+    color: var(--plum-soft);
+  }
+
+  /* Sections */
+  section { padding: 56px 0 8px; scroll-margin-top: 56px; }
+  .eyebrow {
+    display: block; text-align: center;
+    font-size: 12px; letter-spacing: .32em; text-transform: uppercase;
+    color: var(--sage); margin-bottom: 6px;
+  }
+  h2 {
+    font-family: "Fraunces", serif; font-weight: 300;
+    font-size: clamp(32px, 7vw, 44px); line-height: 1.1;
+    text-align: center; margin: 0 0 28px;
+  }
+  .intro { text-align: center; max-width: 560px; margin: 0 auto 28px; }
+
+  .timeline { list-style: none; margin: 0; padding: 0; }
+  .timeline li {
+    display: grid; grid-template-columns: 92px 1fr; gap: 16px;
+    padding: 18px 0; border-top: 1px solid var(--line);
+  }
+  .timeline li:last-child { border-bottom: 1px solid var(--line); }
+  .time {
+    font-family: "Fraunces", serif; font-size: 24px; line-height: 1.2;
+    color: var(--lilac);
+  }
+  .timeline h3 {
+    margin: 0; font-family: "Fraunces", serif; font-weight: 400; font-size: 21px;
+  }
+  .timeline p { margin: 4px 0 0; color: var(--plum-soft); }
+  .tbc {
+    display: inline-block; margin-top: 6px;
+    font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--sage); border: 1px solid var(--sage); border-radius: 99px;
+    padding: 2px 10px;
+  }
+
+  .news { list-style: none; padding: 0; margin: 0; }
+  .news li {
+    background: var(--paper); border-left: 3px solid var(--lilac);
+    padding: 14px 18px; margin-bottom: 12px;
+  }
+  .news time {
+    display: block; font-size: 12px; letter-spacing: .2em;
+    text-transform: uppercase; color: var(--sage);
+  }
+
+  .info-grid { display: grid; gap: 16px; grid-template-columns: 1fr 1fr; }
+  .info {
+    background: var(--paper); padding: 20px 22px;
+  }
+  .info h3 { margin: 0 0 6px; font-family: "Fraunces", serif; font-weight: 400; font-size: 20px; }
+  .info p { margin: 0; color: var(--plum-soft); }
+
+  /* RSVP */
+  form {
+    background: var(--paper); padding: 28px 24px;
+    border: 1px solid var(--line);
+  }
+  fieldset { border: 0; padding: 0; margin: 0 0 24px; }
+  legend, .label {
+    font-size: 12px; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--plum); font-weight: 500; margin-bottom: 10px; padding: 0;
+  }
+  .hint { font-size: 14px; color: var(--plum-soft); margin: -4px 0 10px; }
+  input[type=text], input[type=number], textarea {
+    width: 100%; font: inherit; color: var(--plum);
+    background: #fff; border: 1px solid var(--line); border-radius: 6px;
+    padding: 10px 12px;
+  }
+  input:focus, textarea:focus { outline: 2px solid var(--lilac); outline-offset: 1px; border-color: var(--lilac); }
+  textarea { min-height: 90px; resize: vertical; }
+  .row { display: flex; gap: 8px; margin-bottom: 8px; }
+  .row input[type=text] { flex: 1; }
+  .row input[type=number] { width: 90px; flex: none; }
+  .remove {
+    flex: none; width: 42px; border: 1px solid var(--line); background: #fff;
+    border-radius: 6px; color: var(--plum-soft); font-size: 20px; cursor: pointer;
+  }
+  .add {
+    background: none; border: 1px dashed var(--lilac); color: var(--plum);
+    border-radius: 6px; padding: 8px 14px; font: inherit; font-size: 15px; cursor: pointer;
+  }
+  .add:hover { background: var(--lilac-soft); }
+  .choice { display: flex; gap: 10px; flex-wrap: wrap; }
+  .choice label {
+    display: flex; align-items: center; gap: 8px;
+    border: 1px solid var(--line); background: #fff; border-radius: 99px;
+    padding: 8px 16px; cursor: pointer;
+  }
+  .choice input { accent-color: var(--plum); }
+  .choice label:has(input:checked) { background: var(--lilac-soft); border-color: var(--lilac); }
+  .only-yes[hidden] { display: none; }
+  .submit {
+    width: 100%; border: 0; border-radius: 99px; padding: 14px;
+    background: var(--plum); color: var(--cream); font: inherit;
+    font-size: 14px; letter-spacing: .24em; text-transform: uppercase; cursor: pointer;
+  }
+  .submit:disabled { opacity: .6; cursor: wait; }
+  .status { margin: 14px 0 0; text-align: center; min-height: 1.6em; }
+  .thanks {
+    background: var(--paper); border: 1px solid var(--line);
+    text-align: center; padding: 40px 24px;
+  }
+  .thanks h3 { font-family: "Fraunces", serif; font-weight: 300; font-size: 32px; margin: 0 0 8px; }
+
+  footer {
+    text-align: center; padding: 64px 16px 48px;
+    color: var(--plum-soft); font-size: 15px;
+  }
+  footer .sig { font-family: "Fraunces", serif; font-style: italic; font-size: 24px; color: var(--plum); }
+
+  @media (max-width: 560px) {
+    body { font-size: 16px; }
+    .card { padding: 44px 20px 0; }
+    .info-grid { grid-template-columns: 1fr; }
+    .timeline li { grid-template-columns: 70px 1fr; gap: 12px; }
+    .time { font-size: 20px; }
+    nav ul { gap: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <ul>
+    <li><a href="#tag">Der Tag</a></li>
+    <li><a href="#news">Neuigkeiten</a></li>
+    <li><a href="#anreise">Anreise</a></li>
+    <li><a href="#zusage">Zusage</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="card">
+      <!-- Wellenrahmen -->
+      <svg class="frame" viewBox="0 0 560 860" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M60 40 C150 10 220 60 300 34 C380 10 450 50 512 36 C548 120 518 200 530 290 C544 390 510 470 526 560 C540 650 512 740 520 820 C430 846 360 808 280 830 C200 850 120 812 44 826 C24 740 54 660 36 570 C20 480 52 400 34 310 C18 220 50 130 60 40 Z"
+              fill="none" stroke="#B8A2D8" stroke-width="14" stroke-linejoin="round" opacity=".55"/>
+      </svg>
+
+      <svg class="arch" viewBox="0 0 240 70" aria-label="Wir sagen Ja">
+        <path id="arc" d="M20 66 Q120 0 220 66" fill="none"/>
+        <text><textPath href="#arc" startOffset="50%" text-anchor="middle">Wir sagen Ja</textPath></text>
+      </svg>
+
+      <h1>Kyra <span class="amp">&amp;</span><br>Nico</h1>
+
+      <p class="date"><strong>17. April 2027</strong> · Stuttgart</p>
+
+      <!-- Platz für Markus' Bleistift-Scribbles: einfach img/scribble.png hier einsetzen -->
+      <div class="photos">
+        <img class="couple" src="img/kyra-nico.png" alt="Kyra und Nico Hand in Hand, im Bären- und Dinokostüm" width="825" height="1200">
+      </div>
+    </div>
+    <p class="countdown" id="countdown"></p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="tag">
+    <span class="eyebrow">Samstag, 17. April 2027</span>
+    <h2>Der Tag</h2>
+    <p class="intro">Wir heiraten standesamtlich in Stuttgart und möchten den Tag ganz entspannt mit euch verbringen. Keine großen Programmpunkte, einfach zusammen anstoßen, essen und feiern.</p>
+    <ol class="timeline">
+      <li>
+        <span class="time">14:00</span>
+        <div>
+          <h3>Trauung</h3>
+          <p>Stiftung Geißstraße 7, Geißstraße 7, 70173 Stuttgart. Der Trausaal liegt im ersten Stock und ist nicht barrierefrei. Sagt uns Bescheid, wenn ihr Hilfe braucht.</p>
+        </div>
+      </li>
+      <li>
+        <span class="time">ca. 15:00</span>
+        <div>
+          <h3>Sektempfang</h3>
+          <p>Ganz in der Nähe, zu Fuß erreichbar.</p>
+          <span class="tbc">Ort folgt</span>
+        </div>
+      </li>
+      <li>
+        <span class="time">abends</span>
+        <div>
+          <h3>Abendessen</h3>
+          <p>Gemeinsames Essen, natürlich vegan.</p>
+          <span class="tbc">Details folgen</span>
+        </div>
+      </li>
+      <li>
+        <span class="time">später</span>
+        <div>
+          <h3>Ausklang</h3>
+          <p>Wer mag, zieht mit uns noch durch die Bars in der Altstadt.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section id="news">
+    <span class="eyebrow">Auf dem Laufenden</span>
+    <h2>Neuigkeiten</h2>
+    <!-- Neue Einträge einfach oben einfügen -->
+    <ul class="news">
+      <li>
+        <time datetime="2026-11-14">14. November 2026</time>
+        Die Seite ist online! Bitte sagt uns bis spätestens <strong>1. Januar 2027</strong> Bescheid, ob ihr dabei seid. Hier findet ihr ab jetzt alle Infos, sobald sie feststehen.
+      </li>
+    </ul>
+  </section>
+
+  <section id="anreise">
+    <span class="eyebrow">Gut ankommen</span>
+    <h2>Anreise &amp; Übernachtung</h2>
+    <div class="info-grid">
+      <div class="info">
+        <h3>Anreise</h3>
+        <p>Die Trauung ist mitten in der Stuttgarter Innenstadt. Vom Hauptbahnhof aus ist alles gut zu Fuß oder mit der U-Bahn erreichbar. Parken in der Innenstadt ist teuer und knapp.</p>
+      </div>
+      <div class="info">
+        <h3>Übernachtung</h3>
+        <p>Für alle, die von weiter weg anreisen, sammeln wir gerade Hotelempfehlungen in der Nähe.</p>
+        <span class="tbc">Tipps folgen</span>
+      </div>
+    </div>
+    <div class="lemmy-spot">
+      <img src="img/lemmy.png" alt="Lemmy, unser Hund" width="409" height="447">
+      <p>Lemmy freut sich schon auf euch!</p>
+    </div>
+  </section>
+
+  <section id="zusage">
+    <span class="eyebrow">Bis 1. Januar 2027</span>
+    <h2>Seid ihr dabei?</h2>
+    <p class="intro">Tragt euch bitte hier ein, gern alle aus eurem Haushalt in einer Antwort. Wenn das Formular nicht klappt, schreibt uns einfach direkt.</p>
+
+    <form id="rsvp" novalidate>
+      <fieldset>
+        <legend>Kommt ihr?</legend>
+        <div class="choice">
+          <label><input type="radio" name="zusage" value="Ja" required> Ja, wir sind dabei</label>
+          <label><input type="radio" name="zusage" value="Nein"> Leider nein</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Wer seid ihr?</legend>
+        <p class="hint">Eine Zeile pro erwachsener Person.</p>
+        <div id="adults"></div>
+        <button type="button" class="add" id="addAdult">+ Weitere Person</button>
+      </fieldset>
+
+      <div class="only-yes" hidden>
+        <fieldset>
+          <legend>Kinder</legend>
+          <p class="hint">Falls Kinder mitkommen: Name und Alter, damit wir beim Essen gut planen können.</p>
+          <div id="kids"></div>
+          <button type="button" class="add" id="addKid">+ Kind hinzufügen</button>
+        </fieldset>
+
+        <fieldset>
+          <legend>Zieht ihr abends noch mit los?</legend>
+          <div class="choice">
+            <label><input type="radio" name="abend" value="Ja"> Ja</label>
+            <label><input type="radio" name="abend" value="Vielleicht"> Vielleicht</label>
+            <label><input type="radio" name="abend" value="Nein"> Eher nicht</label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Braucht ihr eine Übernachtung in Stuttgart?</legend>
+          <div class="choice">
+            <label><input type="radio" name="uebernachtung" value="Ja"> Ja</label>
+            <label><input type="radio" name="uebernachtung" value="Nein"> Nein</label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <label class="label" for="allergien">Allergien oder Unverträglichkeiten</label>
+          <input type="text" id="allergien" name="allergien" placeholder="z. B. Nüsse, Gluten">
+        </fieldset>
+      </div>
+
+      <fieldset>
+        <label class="label" for="nachricht">Nachricht an uns</label>
+        <textarea id="nachricht" name="nachricht" placeholder="Optional"></textarea>
+      </fieldset>
+
+      <!-- Honeypot gegen Spam, bleibt leer -->
+      <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+
+      <button type="submit" class="submit" id="submitBtn">Antwort senden</button>
+      <p class="status" id="status" role="status"></p>
+    </form>
+
+    <div class="thanks" id="thanks" hidden>
+      <h3>Danke!</h3>
+      <p id="thanksText">Eure Antwort ist bei uns angekommen.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p class="sig">Kyra, Nico &amp; Lemmy</p>
+  <p>Fragen? Schreibt uns einfach.</p>
+</footer>
+
+<script>
+  // Adresse der Google-Apps-Script-Web-App. Solange leer, zeigt das Formular einen Hinweis.
+  const RSVP_ENDPOINT = "";
+
+  // Countdown
+  (function () {
+    const el = document.getElementById("countdown");
+    const target = new Date("2027-04-17T14:00:00+02:00");
+    const days = Math.ceil((target - new Date()) / 86400000);
+    if (days > 1) el.textContent = "Noch " + days + " Tage";
+    else if (days === 1) el.textContent = "Morgen ist es so weit!";
+    else if (days === 0) el.textContent = "Heute ist es so weit!";
+  })();
+
+  // Dynamische Zeilen
+  const adults = document.getElementById("adults");
+  const kids = document.getElementById("kids");
+
+  function addRow(container, kind) {
+    const row = document.createElement("div");
+    row.className = "row";
+    const name = document.createElement("input");
+    name.type = "text";
+    name.placeholder = kind === "kid" ? "Name des Kindes" : "Vor- und Nachname";
+    name.className = kind === "kid" ? "kid-name" : "adult-name";
+    name.setAttribute("aria-label", name.placeholder);
+    row.appendChild(name);
+    if (kind === "kid") {
+      const age = document.createElement("input");
+      age.type = "number"; age.min = 0; age.max = 17;
+      age.placeholder = "Alter"; age.className = "kid-age";
+      age.setAttribute("aria-label", "Alter");
+      row.appendChild(age);
+    }
+    const rm = document.createElement("button");
+    rm.type = "button"; rm.className = "remove"; rm.textContent = "×";
+    rm.setAttribute("aria-label", "Zeile entfernen");
+    rm.addEventListener("click", () => {
+      if (kind === "adult" && adults.children.length === 1) { name.value = ""; return; }
+      row.remove();
+    });
+    row.appendChild(rm);
+    container.appendChild(row);
+    return name;
+  }
+  addRow(adults, "adult");
+  document.getElementById("addAdult").addEventListener("click", () => addRow(adults, "adult").focus());
+  document.getElementById("addKid").addEventListener("click", () => addRow(kids, "kid").focus());
+
+  // Zusatzfragen nur bei Zusage
+  const yesBlock = document.querySelector(".only-yes");
+  document.querySelectorAll('input[name="zusage"]').forEach(r =>
+    r.addEventListener("change", () => { yesBlock.hidden = r.value !== "Ja" || !r.checked; })
+  );
+
+  // Absenden
+  const form = document.getElementById("rsvp");
+  const statusEl = document.getElementById("status");
+  const btn = document.getElementById("submitBtn");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    statusEl.textContent = "";
+    const f = new FormData(form);
+    if (f.get("website")) return;
+
+    const zusage = f.get("zusage");
+    const names = [...adults.querySelectorAll(".adult-name")].map(i => i.value.trim()).filter(Boolean);
+    const children = zusage === "Ja"
+      ? [...kids.querySelectorAll(".row")].map(r => ({
+          name: r.querySelector(".kid-name").value.trim(),
+          alter: r.querySelector(".kid-age").value.trim()
+        })).filter(k => k.name)
+      : [];
+
+    if (!zusage) { statusEl.textContent = "Bitte wählt aus, ob ihr kommt."; return; }
+    if (!names.length) { statusEl.textContent = "Bitte tragt mindestens einen Namen ein."; return; }
+
+    if (!RSVP_ENDPOINT) {
+      statusEl.textContent = "Das Formular wird gerade noch eingerichtet. Schreibt uns bitte so lange direkt.";
+      return;
+    }
+
+    const payload = {
+      zusage,
+      erwachsene: names,
+      kinder: children,
+      abend: zusage === "Ja" ? (f.get("abend") || "") : "",
+      uebernachtung: zusage === "Ja" ? (f.get("uebernachtung") || "") : "",
+      allergien: zusage === "Ja" ? (f.get("allergien") || "").trim() : "",
+      nachricht: (f.get("nachricht") || "").trim()
+    };
+
+    btn.disabled = true;
+    statusEl.textContent = "Wird gesendet …";
+    try {
+      await fetch(RSVP_ENDPOINT, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(payload)
+      });
+      form.hidden = true;
+      document.getElementById("thanksText").textContent = zusage === "Ja"
+        ? "Wir freuen uns riesig auf euch! Alle Neuigkeiten findet ihr hier auf der Seite."
+        : "Schade, dass ihr nicht dabei sein könnt. Danke, dass ihr Bescheid gesagt habt!";
+      document.getElementById("thanks").hidden = false;
+    } catch (err) {
+      btn.disabled = false;
+      statusEl.textContent = "Das hat leider nicht geklappt. Versucht es bitte noch einmal oder schreibt uns direkt.";
+    }
+  });
+</script>
+</body>
+</html>

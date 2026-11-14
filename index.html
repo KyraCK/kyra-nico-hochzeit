@@ -16,6 +16,7 @@
     --paper: #FBF8F3;
     --lilac: #B8A2D8;
     --lilac-soft: #E7DEF3;
+    --lilac-deep: #9378BF;
     --plum: #3F2A47;
     --plum-soft: #6E5677;
     --sage: #7F9C78;
@@ -99,6 +100,38 @@
     text-align: center; margin: 28px 0 0;
     font-family: "Fraunces", serif; font-style: italic; font-size: 20px;
     color: var(--plum-soft);
+  }
+
+
+  /* Datum und Programm */
+  .bigdate { text-align: center; margin: 0 auto 48px; }
+  .bigdate span { display: block; }
+  .bd-day, .bd-place {
+    font-size: 12px; letter-spacing: .38em; text-transform: uppercase; color: var(--plum-soft);
+  }
+  .bd-main {
+    font-family: "Fraunces", serif; font-weight: 300;
+    font-size: clamp(44px, 11vw, 72px); line-height: 1.1; margin: 6px 0;
+    color: var(--plum);
+  }
+  .bd-main i { font-style: normal; color: var(--lilac); }
+  .program {
+    list-style: none; padding: 0; margin: 0 0 36px;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; text-align: center;
+  }
+  .program svg {
+    width: 76px; height: 76px; display: block; margin: 0 auto 10px;
+    fill: none; stroke: var(--lilac-deep); stroke-width: 1.6;
+    stroke-linecap: round; stroke-linejoin: round;
+  }
+  .p-time {
+    display: block; font-family: "Fraunces", serif; font-size: 21px; color: var(--lilac-deep);
+  }
+  .p-label {
+    display: block; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; margin-top: 2px;
+  }
+  @media (max-width: 560px) {
+    .program { grid-template-columns: repeat(2, 1fr); row-gap: 28px; }
   }
 
   /* Sections */
@@ -262,26 +295,68 @@
 <main class="wrap">
 
   <section id="tag">
-    <span class="eyebrow">Samstag, 17. April 2027</span>
+    <span class="eyebrow">Save the Date</span>
+    <div class="bigdate" aria-label="Samstag, 17. April 2027">
+      <span class="bd-day">Samstag</span>
+      <span class="bd-main">17 <i>·</i> 04 <i>·</i> 2027</span>
+      <span class="bd-place">Stuttgart</span>
+    </div>
+
     <h2>Der Tag</h2>
-    <p class="intro">Wir heiraten standesamtlich in Stuttgart und möchten den Tag ganz entspannt mit euch verbringen. Fest steht bisher die Trauung, alles Weitere folgt hier, sobald es geplant ist.</p>
-    <ol class="timeline">
+    <ul class="program">
       <li>
-        <span class="time">14:00</span>
-        <div>
-          <h3>Trauung</h3>
-          <p>Stiftung Geißstraße 7, Geißstraße 7, 70173 Stuttgart. Der Trausaal liegt im ersten Stock und ist nicht barrierefrei. Sagt uns Bescheid, wenn ihr Hilfe braucht.</p>
-        </div>
+        <svg viewBox="0 0 80 80" aria-hidden="true">
+          <path d="M23 30 L27 24 H35 L39 30 L31 38 Z M23 30 H39 M27 24 L31 30 L35 24"/>
+          <path d="M17 22 l-4 -3 M31 15 v-5 M45 22 l4 -3"/>
+          <circle cx="31" cy="54" r="16"/><circle cx="49" cy="54" r="16"/>
+        </svg>
+        <span class="p-time">14:00 Uhr</span>
+        <span class="p-label">Trauung</span>
       </li>
       <li>
-        <span class="time">danach</span>
-        <div>
-          <h3>Weiterfeiern</h3>
-          <p>Nach der Trauung stoßen wir zusammen an, essen gemeinsam (natürlich vegan) und lassen den Abend entspannt ausklingen. Wo genau, verraten wir bald hier auf der Seite.</p>
-          <span class="tbc">Details folgen</span>
-        </div>
+        <svg viewBox="0 0 80 80" aria-hidden="true">
+          <g transform="translate(29 16) rotate(-14)"><path d="M-7 0 H7 L5.5 26 Q0 33 -5.5 26 Z M-6 9 H6 M0 31 V55 M-8 55 H8"/></g>
+          <g transform="translate(51 16) rotate(14)"><path d="M-7 0 H7 L5.5 26 Q0 33 -5.5 26 Z M-6 9 H6 M0 31 V55 M-8 55 H8"/></g>
+          <path d="M40 10 v-6 M34 11 l-3 -4 M46 11 l3 -4"/>
+        </svg>
+        <span class="p-time">danach</span>
+        <span class="p-label">Anstoßen</span>
       </li>
-    </ol>
+      <li>
+        <svg viewBox="0 0 80 80" aria-hidden="true">
+          <path d="M23 10 V24 Q23 31 27 31 Q31 31 31 24 V10 M27 10 V24 M27 31 V70"/>
+          <path d="M42 70 V10 Q50 20 48 40 L42 41"/>
+          <ellipse cx="59" cy="21" rx="6" ry="10"/><path d="M59 31 V70"/>
+        </svg>
+        <span class="p-time">abends</span>
+        <span class="p-label">Essen</span>
+      </li>
+      <li>
+        <svg viewBox="0 0 80 80" aria-hidden="true">
+          <path d="M40 4 V27"/>
+          <circle cx="40" cy="47" r="20"/>
+          <ellipse cx="40" cy="47" rx="20" ry="7"/><ellipse cx="40" cy="47" rx="20" ry="14"/>
+          <ellipse cx="40" cy="47" rx="7" ry="20"/><ellipse cx="40" cy="47" rx="14" ry="20"/>
+          <path d="M14 26 l1.5 4 4 1.5 -4 1.5 -1.5 4 -1.5 -4 -4 -1.5 4 -1.5 Z"/>
+          <path d="M67 20 l1.2 3 3 1.2 -3 1.2 -1.2 3 -1.2 -3 -3 -1.2 3 -1.2 Z"/>
+          <path d="M66 64 l1 2.5 2.5 1 -2.5 1 -1 2.5 -1 -2.5 -2.5 -1 2.5 -1 Z"/>
+        </svg>
+        <span class="p-time">später</span>
+        <span class="p-label">Tanzen &amp; Bars</span>
+      </li>
+    </ul>
+
+    <div class="info-grid">
+      <div class="info">
+        <h3>Trauung</h3>
+        <p>Um 14:00 Uhr in der Stiftung Geißstraße 7, Geißstraße 7, 70173 Stuttgart. Der Trausaal liegt im ersten Stock und ist nicht barrierefrei. Sagt uns Bescheid, wenn ihr Hilfe braucht.</p>
+      </div>
+      <div class="info">
+        <h3>Danach</h3>
+        <p>Wir stoßen zusammen an, essen gemeinsam (natürlich vegan) und lassen den Abend &bdquo;entspannt&ldquo; ausklingen. Wo genau, verraten wir bald hier.</p>
+        <span class="tbc">Details folgen</span>
+      </div>
+    </div>
   </section>
 
   <section id="news">

@@ -242,6 +242,17 @@
     text-align: center; padding: 64px 16px 48px;
     color: var(--plum-soft); font-size: 15px;
   }
+  .contacts { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-top: 18px; }
+  .contact {
+    background: var(--paper); border: 1px solid var(--line); padding: 16px 22px; width: 280px; max-width: 100%;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+  }
+  .c-name { font-family: "Fraunces", serif; font-size: 20px; color: var(--plum); }
+  .c-mail { color: var(--plum); text-decoration-color: var(--lilac); text-underline-offset: 3px; word-break: break-all; }
+  .c-wa {
+    display: inline-block; text-decoration: none; color: var(--cream); background: var(--sage);
+    border-radius: 99px; padding: 6px 16px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase;
+  }
   footer .sig { font-family: "Fraunces", serif; font-style: italic; font-size: 24px; color: var(--plum); }
 
   @media (max-width: 560px) {
@@ -466,11 +477,33 @@
 <footer>
   <p class="sig">Kyra, Nico &amp; Lemmy</p>
   <p>Fragen? Schreibt uns einfach.</p>
+  <div class="contacts">
+    <div class="contact">
+      <span class="c-name">Kyra</span>
+      <a class="c-mail" data-c="ZWQueG1nQGJsb0thcnlL" href="#">E-Mail</a>
+      <a class="c-wa" data-w="NzcwOTc5Mzk3MTk0" href="#" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+    <div class="contact">
+      <span class="c-name">Nico</span>
+      <a class="c-mail" data-c="bW9jLmVscmhlb3dvY2luQG9mbmk=" href="#">E-Mail</a>
+    </div>
+  </div>
+  <noscript><p>Unsere Kontaktdaten werden nur mit aktiviertem JavaScript angezeigt.</p></noscript>
 </footer>
 
 <script>
   // Adresse der Google-Apps-Script-Web-App. Solange leer, zeigt das Formular einen Hinweis.
   const RSVP_ENDPOINT = "";
+
+  // Kontakte erst im Browser zusammensetzen (Schutz vor Adress-Sammlern)
+  const dec = v => atob(v).split("").reverse().join("");
+  document.querySelectorAll("[data-c]").forEach(a => {
+    const m = dec(a.dataset.c); a.href = "mailto:" + m; a.textContent = m;
+  });
+  document.querySelectorAll("[data-w]").forEach(a => {
+    const n = dec(a.dataset.w); a.href = "https://wa.me/" + n;
+    a.textContent = "WhatsApp · 0" + n.slice(2, 5) + " " + n.slice(5);
+  });
 
   // Countdown
   (function () {

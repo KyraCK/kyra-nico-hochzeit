@@ -11,6 +11,7 @@
  * Jede Antwort ergibt eine Zeile pro Person (Erwachsene und Kinder),
  * mit gemeinsamer Antwort-ID, damit Haushalte zusammen bleiben.
  */
+const SHEET_ID = "1zYOC-IX--6HA-ekeFgOxqkn54kqb3YHDI3ODQu_2j8g";
 const SHEET_NAME = "Antworten";
 const HEADER = [
   "Zeitpunkt", "Antwort-ID", "Zusage", "Typ", "Name", "Alter",
@@ -46,7 +47,7 @@ function doPost(e) {
 }
 
 function getSheet_() {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const ss = SpreadsheetApp.openById(SHEET_ID);
   let sheet = ss.getSheetByName(SHEET_NAME);
   if (!sheet) {
     sheet = ss.insertSheet(SHEET_NAME);

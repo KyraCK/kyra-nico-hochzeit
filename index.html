@@ -337,6 +337,27 @@
   .legend span { display: inline-flex; align-items: center; gap: 6px; }
   .legend i { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
   @media (max-width: 700px) { .hotels { grid-template-columns: 1fr; } #map { height: 320px; } }
+
+  /* Fotos */
+  .sticker { filter: drop-shadow(3px 0 0 #fff) drop-shadow(-3px 0 0 #fff) drop-shadow(0 3px 0 #fff) drop-shadow(0 -3px 0 #fff) drop-shadow(0 10px 16px rgba(43,24,56,.22)); }
+  .tilt-l { transform: rotate(-3deg); }
+  .split { display: grid; grid-template-columns: 300px 1fr; gap: 36px; align-items: center; }
+  .split-img { margin: 0; text-align: center; }
+  .split-img img { width: 100%; }
+  .split-img figcaption { font-family: var(--serif); font-style: italic; font-size: 21px; margin-top: 12px; color: var(--ink); }
+  .split-dress { grid-template-columns: 260px 1fr; margin-top: 8px; }
+  .split-dress .intro { text-align: left; margin-left: 0; }
+  .split-dress .wink { text-align: left; margin: 0; }
+  .arch-photo { border-radius: 999px 999px 16px 16px; border: 6px solid var(--ink); transform: rotate(2deg); }
+  .ring-photo { width: 220px; margin: -150px auto 18px; transform: rotate(4deg); position: relative; }
+  .band-zusage { padding-top: 120px; }
+  .band-anreise { padding-bottom: 130px; }
+  @media (max-width: 700px) {
+    .split, .split-dress { grid-template-columns: 1fr; gap: 20px; }
+    .split-img img { max-width: 260px; margin: 0 auto; }
+    .split-dress .intro, .split-dress .wink { text-align: center; margin-left: auto; margin-right: auto; }
+    .ring-photo { width: 180px; margin-top: -110px; }
+  }
 </style>
 </head>
 <body>
@@ -489,13 +510,26 @@
         <span class="p-label">Lieber nicht</span>
       </li>
     </ul>
+    <div class="split split-dress">
+    <figure class="split-img">
+      <img class="arch-photo" src="img/beach.jpg" alt="Kyra und Nico am Strand, Nico im bunten Hemd" width="640" height="800">
+      <figcaption>Nico hat sein Outfit schon.</figcaption>
+    </figure>
+    <div>
     <p class="intro">Wir heiraten ganz entspannt, und genau so dürft ihr auch kommen. Casual, chic oder irgendwas dazwischen: alles erlaubt. Black Tie muss nicht sein, außer ihr wollt es unbedingt. Und wer sich gern richtig in Schale wirft, darf das natürlich trotzdem. Einzige Regel: Flipflops bleiben zu Hause 😉</p>
     <p class="intro wink">Wer schöner aussieht als das Brautpaar, bekommt trotzdem Sekt 🥂</p>
+    </div>
+    </div>
   </div></section>
 
   <section id="news" class="band band-news"><div class="wrap">
     <span class="eyebrow">Auf dem Laufenden</span>
     <h2>Neuigkeiten</h2>
+    <div class="split">
+    <figure class="split-img">
+      <img class="sticker tilt-l" src="img/hike.webp" alt="Kyra und Nico beim Wandern auf einer Holzbrücke" width="485" height="640">
+      <figcaption>Wir halten euch auf dem Laufenden.</figcaption>
+    </figure>
     <!-- Neue Einträge einfach oben einfügen -->
     <ul class="news">
       <li>
@@ -503,6 +537,7 @@
         Die Seite ist online! Bitte sagt uns bis spätestens <strong>1. Januar 2027</strong> Bescheid, ob ihr dabei seid. Hier findet ihr ab jetzt alle Infos, sobald sie feststehen.
       </li>
     </ul>
+    </div>
   </div></section>
 
   <section id="anreise" class="band band-anreise"><div class="wrap">
@@ -557,6 +592,7 @@
   </div></section>
 
   <section id="zusage" class="band band-zusage"><div class="wrap">
+    <img class="sticker ring-photo" src="img/ring.webp" alt="Kyra und Nico, Kyra zeigt ihren Verlobungsring" width="496" height="640">
     <span class="eyebrow">Bis 1. Januar 2027</span>
     <h2>Seid ihr dabei?</h2>
     <p class="intro">Tragt euch bitte hier ein, gern alle aus eurem Haushalt in einer Antwort. Wenn das Formular nicht klappt, schreibt uns einfach direkt.</p>

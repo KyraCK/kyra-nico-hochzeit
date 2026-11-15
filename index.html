@@ -9,18 +9,23 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%9C%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cream: #F7F2EA;
-    --paper: #FBF8F3;
-    --lilac: #B8A2D8;
-    --lilac-soft: #E7DEF3;
-    --lilac-deep: #9378BF;
-    --plum: #3F2A47;
-    --plum-soft: #6E5677;
-    --sage: #7F9C78;
-    --line: #DCD2E6;
+    --serif: "Instrument Serif", Georgia, serif;
+    --ink: #2B1838;
+    --cream: #F6F0E6;
+    --paper: #FFFBF4;
+    --lilac: #C4B2EC;
+    --lilac-soft: #E6DDF8;
+    --lilac-deep: #F0642E;
+    --tangerine: #F0642E;
+    --butter: #F5DF7A;
+    --plum: #2B1838;
+    --plum-soft: #5A4766;
+    --sage: #F0642E;
+    --line: #E2D8EE;
     color-scheme: light;
   }
   * { box-sizing: border-box; }
@@ -72,7 +77,7 @@
     fill: var(--sage); text-transform: uppercase;
   }
   h1 {
-    font-family: "Fraunces", Georgia, serif; font-weight: 300;
+    font-family: var(--serif); font-weight: 300;
     font-size: clamp(56px, 13vw, 92px); line-height: .95;
     margin: 6px 0 0; color: var(--plum);
   }
@@ -93,12 +98,12 @@
   .lemmy-spot img { width: 150px; transform: rotate(-3deg); }
   .lemmy-spot p {
     margin: 0 0 18px; max-width: 220px;
-    font-family: "Fraunces", serif; font-style: italic; font-size: 19px; color: var(--plum-soft);
+    font-family: var(--serif); font-style: italic; font-size: 19px; color: var(--plum-soft);
   }
   .scribble-note { display: none; }
   .countdown {
     text-align: center; margin: 28px 0 0;
-    font-family: "Fraunces", serif; font-style: italic; font-size: 20px;
+    font-family: var(--serif); font-style: italic; font-size: 20px;
     color: var(--plum-soft);
   }
 
@@ -110,7 +115,7 @@
     font-size: 12px; letter-spacing: .38em; text-transform: uppercase; color: var(--plum-soft);
   }
   .bd-main {
-    font-family: "Fraunces", serif; font-weight: 300;
+    font-family: var(--serif); font-weight: 300;
     font-size: clamp(44px, 11vw, 72px); line-height: 1.1; margin: 6px 0;
     color: var(--plum);
   }
@@ -125,7 +130,7 @@
     stroke-linecap: round; stroke-linejoin: round;
   }
   .p-time {
-    display: block; font-family: "Fraunces", serif; font-size: 21px; color: var(--lilac-deep);
+    display: block; font-family: var(--serif); font-size: 21px; color: var(--lilac-deep);
   }
   .p-label {
     display: block; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; margin-top: 2px;
@@ -142,12 +147,12 @@
     color: var(--sage); margin-bottom: 6px;
   }
   h2 {
-    font-family: "Fraunces", serif; font-weight: 300;
+    font-family: var(--serif); font-weight: 300;
     font-size: clamp(32px, 7vw, 44px); line-height: 1.1;
     text-align: center; margin: 0 0 28px;
   }
   .intro { text-align: center; max-width: 560px; margin: 0 auto 28px; }
-  .wink { max-width: 660px; text-wrap: balance; font-family: "Fraunces", serif; font-style: italic; font-size: 20px; color: var(--plum-soft); margin-top: -10px; }
+  .wink { max-width: 660px; text-wrap: balance; font-family: var(--serif); font-style: italic; font-size: 20px; color: var(--plum-soft); margin-top: -10px; }
 
   .timeline { list-style: none; margin: 0; padding: 0; }
   .timeline li {
@@ -156,11 +161,11 @@
   }
   .timeline li:last-child { border-bottom: 1px solid var(--line); }
   .time {
-    font-family: "Fraunces", serif; font-size: 24px; line-height: 1.2;
+    font-family: var(--serif); font-size: 24px; line-height: 1.2;
     color: var(--lilac);
   }
   .timeline h3 {
-    margin: 0; font-family: "Fraunces", serif; font-weight: 400; font-size: 21px;
+    margin: 0; font-family: var(--serif); font-weight: 400; font-size: 21px;
   }
   .timeline p { margin: 4px 0 0; color: var(--plum-soft); }
   .tbc {
@@ -184,7 +189,7 @@
   .info {
     background: var(--paper); padding: 20px 22px;
   }
-  .info h3 { margin: 0 0 6px; font-family: "Fraunces", serif; font-weight: 400; font-size: 20px; }
+  .info h3 { margin: 0 0 6px; font-family: var(--serif); font-weight: 400; font-size: 20px; }
   .info p { margin: 0; color: var(--plum-soft); }
 
   /* RSVP */
@@ -237,7 +242,7 @@
     background: var(--paper); border: 1px solid var(--line);
     text-align: center; padding: 40px 24px;
   }
-  .thanks h3 { font-family: "Fraunces", serif; font-weight: 300; font-size: 32px; margin: 0 0 8px; }
+  .thanks h3 { font-family: var(--serif); font-weight: 300; font-size: 32px; margin: 0 0 8px; }
 
   footer {
     text-align: center; padding: 64px 16px 48px;
@@ -248,13 +253,13 @@
     background: var(--paper); border: 1px solid var(--line); padding: 16px 22px; width: 280px; max-width: 100%;
     display: flex; flex-direction: column; align-items: center; gap: 8px;
   }
-  .c-name { font-family: "Fraunces", serif; font-size: 20px; color: var(--plum); }
+  .c-name { font-family: var(--serif); font-size: 20px; color: var(--plum); }
   .c-mail { color: var(--plum); text-decoration-color: var(--lilac); text-underline-offset: 3px; word-break: break-all; }
   .c-wa {
     display: inline-block; text-decoration: none; color: var(--cream); background: var(--sage);
     border-radius: 99px; padding: 6px 16px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase;
   }
-  footer .sig { font-family: "Fraunces", serif; font-style: italic; font-size: 24px; color: var(--plum); }
+  footer .sig { font-family: var(--serif); font-style: italic; font-size: 24px; color: var(--plum); }
 
   @media (max-width: 560px) {
     body { font-size: 16px; }
@@ -264,6 +269,74 @@
     .time { font-size: 20px; }
     nav ul { gap: 14px; }
   }
+
+  /* ===== Redesign: Farbblöcke ===== */
+  body { background: var(--cream); color: var(--ink); }
+  nav { background: rgba(43, 24, 56, .94); border-bottom: 0; }
+  nav a { color: var(--cream); }
+  nav a:hover { color: var(--butter); }
+  .hero { background: var(--lilac); padding: 48px 0 40px; }
+  .card { background: transparent; }
+  .arch text { fill: var(--ink); font-weight: 500; }
+  h1 { font-weight: 400; font-size: clamp(72px, 18vw, 132px); line-height: .88; letter-spacing: -.01em; color: var(--ink); }
+  h1 .amp { color: var(--tangerine); font-size: .7em; }
+  .date { color: var(--ink); }
+  .countdown { color: var(--ink); font-size: 24px; }
+  section.band { padding: 72px 0 64px; }
+  .band-tag, .band-news { background: var(--cream); }
+  .band-dresscode { background: var(--butter); }
+  .band-dresscode .program svg { stroke: var(--ink); }
+  .band-dresscode .p-time { color: var(--ink); }
+  .band-dresscode .eyebrow { color: var(--ink); }
+  .band-dresscode .wink { color: var(--ink); }
+  .band-anreise { background: var(--ink); color: var(--cream); }
+  .band-anreise h2, .band-anreise .info h3 { color: var(--cream); }
+  .band-anreise .eyebrow { color: var(--butter); }
+  .band-anreise .info { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); }
+  .band-anreise .info p { color: #DCD2E6; }
+  .band-anreise .tbc { color: var(--butter); border-color: var(--butter); }
+  .band-anreise .lemmy-spot p { color: var(--lilac); }
+  .band-zusage { background: var(--lilac); }
+  .band-zusage .eyebrow { color: var(--ink); }
+  h2 { font-weight: 400; font-size: clamp(44px, 10vw, 68px); line-height: 1; letter-spacing: -.01em; }
+  .eyebrow { font-weight: 600; }
+  .bd-main { font-weight: 400; font-size: clamp(56px, 14vw, 96px); }
+  .bd-main i { color: var(--tangerine); }
+  .p-time { font-size: 26px; color: var(--ink); }
+  .program svg { stroke: var(--tangerine); stroke-width: 1.8; }
+  .info { background: var(--paper); }
+  .info h3, .thanks h3, .c-name { font-weight: 400; font-size: 26px; }
+  .news li { border-left-color: var(--tangerine); }
+  .wink { font-size: 26px; }
+  form { border: 0; box-shadow: 0 1px 0 rgba(43,24,56,.06); }
+  .choice label:has(input:checked) { background: var(--butter); border-color: var(--ink); }
+  .add { border-color: var(--ink); }
+  .add:hover { background: var(--butter); }
+  .submit { background: var(--tangerine); color: #fff; font-weight: 600; }
+  .submit:hover { background: #D9531F; }
+  footer { background: var(--ink); color: #DCD2E6; }
+  footer .sig { color: var(--cream); font-size: 34px; }
+  .contact { background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.14); }
+  .c-name { color: var(--cream); }
+  .c-mail { color: var(--cream); text-decoration-color: var(--tangerine); }
+  .c-wa { background: var(--tangerine); color: #fff; }
+
+  /* Hotels und Karte */
+  .hotels { display: grid; gap: 14px; grid-template-columns: repeat(3, 1fr); margin-top: 16px; }
+  .hotel { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); padding: 18px 18px 16px; }
+  .hotel h3 { margin: 0 0 4px; font-family: var(--serif); font-weight: 400; font-size: 23px; color: var(--cream); line-height: 1.15; }
+  .hotel .tag { display: inline-block; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink); background: var(--butter); padding: 2px 8px; margin-bottom: 10px; }
+  .hotel p { margin: 0 0 6px; color: #DCD2E6; font-size: 15px; }
+  .hotel .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: 1px; }
+  .note-small { font-size: 13px; color: #BFB2CC; text-align: center; margin: 14px 0 0; }
+  #map .leaflet-tile-pane { filter: grayscale(1) contrast(.85) brightness(1.08); }
+  #map { height: 380px; margin-top: 28px; border: 1px solid rgba(255,255,255,.14); }
+  .pin { width: 30px; height: 30px; border-radius: 50%; border: 3px solid #fff; display: grid; place-items: center;
+         font: 600 13px/1 "Jost", sans-serif; color: #fff; box-shadow: 0 2px 6px rgba(0,0,0,.35); }
+  .legend { display: flex; flex-wrap: wrap; gap: 8px 18px; justify-content: center; margin-top: 12px; font-size: 14px; color: #DCD2E6; }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .legend i { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+  @media (max-width: 700px) { .hotels { grid-template-columns: 1fr; } #map { height: 320px; } }
 </style>
 </head>
 <body>
@@ -284,7 +357,7 @@
       <!-- Wellenrahmen -->
       <svg class="frame" viewBox="0 0 560 860" preserveAspectRatio="none" aria-hidden="true">
         <path d="M60 40 C150 10 220 60 300 34 C380 10 450 50 512 36 C548 120 518 200 530 290 C544 390 510 470 526 560 C540 650 512 740 520 820 C430 846 360 808 280 830 C200 850 120 812 44 826 C24 740 54 660 36 570 C20 480 52 400 34 310 C18 220 50 130 60 40 Z"
-              fill="none" stroke="#B8A2D8" stroke-width="14" stroke-linejoin="round" opacity=".55"/>
+              fill="none" stroke="#F0642E" stroke-width="10" stroke-linejoin="round"/>
       </svg>
 
       <svg class="arch" viewBox="0 0 240 70" aria-label="Wir sagen Ja">
@@ -305,9 +378,9 @@
   </div>
 </header>
 
-<main class="wrap">
+<main>
 
-  <section id="tag">
+  <section id="tag" class="band band-tag"><div class="wrap">
     <span class="eyebrow">Save the Date</span>
     <div class="bigdate" aria-label="Samstag, 17. April 2027">
       <span class="bd-day">Samstag</span>
@@ -370,9 +443,9 @@
         <span class="tbc">Details folgen</span>
       </div>
     </div>
-  </section>
+  </div></section>
 
-  <section id="dresscode">
+  <section id="dresscode" class="band band-dresscode"><div class="wrap">
     <span class="eyebrow">Dresscode</span>
     <h2>Come as you are</h2>
     <ul class="program dress">
@@ -418,9 +491,9 @@
     </ul>
     <p class="intro">Wir heiraten ganz entspannt, und genau so dürft ihr auch kommen. Casual, chic oder irgendwas dazwischen: alles erlaubt. Black Tie muss nicht sein, außer ihr wollt es unbedingt. Und wer sich gern richtig in Schale wirft, darf das natürlich trotzdem. Einzige Regel: Flipflops bleiben zu Hause 😉</p>
     <p class="intro wink">Wer schöner aussieht als das Brautpaar, bekommt trotzdem Sekt 🥂</p>
-  </section>
+  </div></section>
 
-  <section id="news">
+  <section id="news" class="band band-news"><div class="wrap">
     <span class="eyebrow">Auf dem Laufenden</span>
     <h2>Neuigkeiten</h2>
     <!-- Neue Einträge einfach oben einfügen -->
@@ -430,29 +503,60 @@
         Die Seite ist online! Bitte sagt uns bis spätestens <strong>1. Januar 2027</strong> Bescheid, ob ihr dabei seid. Hier findet ihr ab jetzt alle Infos, sobald sie feststehen.
       </li>
     </ul>
-  </section>
+  </div></section>
 
-  <section id="anreise">
+  <section id="anreise" class="band band-anreise"><div class="wrap">
     <span class="eyebrow">Gut ankommen</span>
     <h2>Anreise &amp; Übernachtung</h2>
     <div class="info-grid">
       <div class="info">
         <h3>Anreise</h3>
-        <p>Die Trauung ist mitten in der Stuttgarter Innenstadt. Vom Hauptbahnhof aus ist alles gut zu Fuß oder mit der U-Bahn erreichbar. Parken in der Innenstadt ist teuer und knapp.</p>
+        <p>Alles liegt mitten in der Stuttgarter Innenstadt. Vom Hauptbahnhof sind es etwa 15 Minuten zu Fuß zur Trauung. Parken in der Innenstadt ist teuer und knapp, kommt also am besten mit Bahn oder U-Bahn.</p>
       </div>
       <div class="info">
-        <h3>Übernachtung</h3>
-        <p>Für alle, die von weiter weg anreisen, sammeln wir gerade Hotelempfehlungen in der Nähe.</p>
-        <span class="tbc">Tipps folgen</span>
+        <h3>Wo wir feiern</h3>
+        <p>Den Ort für Sektempfang und Essen verraten wir bald. Er wird ganz in der Nähe der Trauung sein, alles zu Fuß erreichbar.</p>
+        <span class="tbc">Folgt</span>
       </div>
     </div>
+
+    <div class="hotels">
+      <div class="hotel">
+        <span class="tag">Um die Ecke</span>
+        <h3><span class="dot" style="background:#C4B2EC"></span>EmiLu Design Hotel</h3>
+        <p>Nadlerstraße 4. Designhotel, rund 2 Minuten zu Fuß zur Trauung.</p>
+        <p>Gehobene Preisklasse.</p>
+      </div>
+      <div class="hotel">
+        <span class="tag">Günstig &amp; schick</span>
+        <h3><span class="dot" style="background:#F5DF7A"></span>Motel One Hauptbahnhof</h3>
+        <p>Kriegsbergstraße 32, direkt am Hauptbahnhof. Etwa 15 Minuten zu Fuß zur Trauung.</p>
+        <p>Meist um die 90 € pro Nacht.</p>
+      </div>
+      <div class="hotel">
+        <span class="tag">Günstig</span>
+        <h3><span class="dot" style="background:#F5DF7A"></span>ibis Stuttgart Centrum</h3>
+        <p>Marienplatz 8-10. Etwa 20 Minuten zu Fuß oder ein paar Minuten mit der U-Bahn.</p>
+        <p>Günstige Preisklasse.</p>
+      </div>
+    </div>
+    <p class="note-small">Preise schwanken je nach Datum, früh buchen lohnt sich. Angaben ohne Gewähr.</p>
+
+    <div id="map" role="img" aria-label="Karte mit Trauort, Hotels und Hauptbahnhof"></div>
+    <div class="legend">
+      <span><i style="background:#F0642E"></i>Trauung</span>
+      <span><i style="background:#C4B2EC"></i>EmiLu</span>
+      <span><i style="background:#F5DF7A"></i>Hotels</span>
+      <span><i style="background:#8C7A99"></i>Hauptbahnhof</span>
+    </div>
+
     <div class="lemmy-spot">
       <img src="img/lemmy.png" alt="Lemmy, unser Hund" width="409" height="447">
       <p>Lemmy freut sich schon auf euch!</p>
     </div>
-  </section>
+  </div></section>
 
-  <section id="zusage">
+  <section id="zusage" class="band band-zusage"><div class="wrap">
     <span class="eyebrow">Bis 1. Januar 2027</span>
     <h2>Seid ihr dabei?</h2>
     <p class="intro">Tragt euch bitte hier ein, gern alle aus eurem Haushalt in einer Antwort. Wenn das Formular nicht klappt, schreibt uns einfach direkt.</p>
@@ -520,7 +624,7 @@
       <h3>Danke!</h3>
       <p id="thanksText">Eure Antwort ist bei uns angekommen.</p>
     </div>
-  </section>
+  </div></section>
 
 </main>
 
@@ -663,6 +767,34 @@
       statusEl.textContent = "Das hat leider nicht geklappt. Versucht es bitte noch einmal oder schreibt uns direkt.";
     }
   });
+</script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  (function () {
+    if (!window.L) return;
+    const map = L.map("map", { scrollWheelZoom: false, zoomControl: true }).setView([48.7765, 9.1760], 15);
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+    const pin = (color, label, text) => L.divIcon({
+      className: "", iconSize: [30, 30], iconAnchor: [15, 15],
+      html: '<div class="pin" style="background:' + color + ';color:' + text + '">' + label + '</div>'
+    });
+    const places = [
+      [48.77365, 9.17749, "#F0642E", "#fff", "\u2665", "<b>Trauung</b><br>Stiftung Geißstraße 7"],
+      [48.77430, 9.17679, "#C4B2EC", "#2B1838", "E", "<b>EmiLu Design Hotel</b><br>Nadlerstraße 4"],
+      [48.78438, 9.17723, "#F5DF7A", "#2B1838", "M", "<b>Motel One Hauptbahnhof</b><br>Kriegsbergstraße 32"],
+      [48.76378, 9.16758, "#F5DF7A", "#2B1838", "i", "<b>ibis Stuttgart Centrum</b><br>Marienplatz 8-10"],
+      [48.78384, 9.18171, "#8C7A99", "#fff", "H", "<b>Hauptbahnhof</b>"]
+    ];
+    const bounds = [];
+    places.forEach(([lat, lng, c, t, l, popup]) => {
+      L.marker([lat, lng], { icon: pin(c, l, t) }).addTo(map).bindPopup(popup);
+      bounds.push([lat, lng]);
+    });
+    map.fitBounds(bounds, { padding: [30, 30] });
+  })();
 </script>
 </body>
 </html>

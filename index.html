@@ -322,7 +322,9 @@
   .c-wa { background: var(--tangerine); color: #fff; }
 
   /* Hotels und Karte */
-  .hotels { display: grid; gap: 14px; grid-template-columns: repeat(3, 1fr); margin-top: 16px; }
+  .hotels { display: grid; gap: 14px; grid-template-columns: repeat(2, 1fr); margin-top: 16px; }
+  .sub { font-family: var(--serif); font-weight: 400; font-size: clamp(32px, 7vw, 44px); color: var(--cream); text-align: center; margin: 56px 0 6px; }
+  .sub-intro { text-align: center; color: #DCD2E6; max-width: 520px; margin: 0 auto 8px; }
   .hotel { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); padding: 18px 18px 16px; }
   .hotel h3 { margin: 0 0 4px; font-family: var(--serif); font-weight: 400; font-size: 23px; color: var(--cream); line-height: 1.15; }
   .hotel .tag { display: inline-block; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink); background: var(--butter); padding: 2px 8px; margin-bottom: 10px; }
@@ -555,24 +557,29 @@
       </div>
     </div>
 
+    <h3 class="sub">Übernachten</h3>
+    <p class="sub-intro">Für alle, die anreisen und in Stuttgart schlafen möchten: ein paar Hotels, von denen aus ihr alles zu Fuß erreicht.</p>
     <div class="hotels">
       <div class="hotel">
         <span class="tag">Um die Ecke</span>
         <h3><span class="dot" style="background:#C4B2EC"></span>EmiLu Design Hotel</h3>
-        <p>Nadlerstraße 4. Designhotel, rund 2 Minuten zu Fuß zur Trauung.</p>
+        <p>Nadlerstraße 4. Designhotel, etwa 2 Minuten zu Fuß zur Trauung.</p>
         <p>Gehobene Preisklasse.</p>
       </div>
       <div class="hotel">
-        <span class="tag">Günstig &amp; schick</span>
-        <h3><span class="dot" style="background:#F5DF7A"></span>Motel One Hauptbahnhof</h3>
-        <p>Kriegsbergstraße 32, direkt am Hauptbahnhof. Etwa 15 Minuten zu Fuß zur Trauung.</p>
-        <p>Meist um die 90 € pro Nacht.</p>
+        <span class="tag">Mit Küche</span>
+        <h3><span class="dot" style="background:#F5DF7A"></span>Numa Rotebühlplatz</h3>
+        <p>Rotebühlplatz 2. Moderne Zimmer und Apartments mit digitalem Check-in, etwa 4 Minuten zu Fuß.</p>
+      </div>
+      <div class="hotel">
+        <span class="tag">Klein &amp; schön</span>
+        <h3><span class="dot" style="background:#F5DF7A"></span>Das Edith</h3>
+        <p>Heusteigstraße 34. Kleines Designhotel mit sehr gutem Frühstück, etwa 6 Minuten zu Fuß.</p>
       </div>
       <div class="hotel">
         <span class="tag">Günstig</span>
-        <h3><span class="dot" style="background:#F5DF7A"></span>ibis Stuttgart Centrum</h3>
-        <p>Marienplatz 8-10. Etwa 20 Minuten zu Fuß oder ein paar Minuten mit der U-Bahn.</p>
-        <p>Günstige Preisklasse.</p>
+        <h3><span class="dot" style="background:#F5DF7A"></span>Motel One Stuttgart-Mitte</h3>
+        <p>Lautenschlagerstraße 14, nah am Hauptbahnhof. Etwa 12 Minuten zu Fuß zur Trauung.</p>
       </div>
     </div>
     <p class="note-small">Preise schwanken je nach Datum, früh buchen lohnt sich. Angaben ohne Gewähr.</p>
@@ -820,8 +827,9 @@
     const places = [
       [48.77365, 9.17749, "#F0642E", "#fff", "\u2665", "<b>Trauung</b><br>Stiftung Geißstraße 7"],
       [48.77430, 9.17679, "#C4B2EC", "#2B1838", "E", "<b>EmiLu Design Hotel</b><br>Nadlerstraße 4"],
-      [48.78438, 9.17723, "#F5DF7A", "#2B1838", "M", "<b>Motel One Hauptbahnhof</b><br>Kriegsbergstraße 32"],
-      [48.76378, 9.16758, "#F5DF7A", "#2B1838", "i", "<b>ibis Stuttgart Centrum</b><br>Marienplatz 8-10"],
+      [48.77425, 9.17395, "#F5DF7A", "#2B1838", "N", "<b>Numa Rotebühlplatz</b><br>Rotebühlplatz 2"],
+      [48.77006, 9.17909, "#F5DF7A", "#2B1838", "D", "<b>Das Edith</b><br>Heusteigstraße 34"],
+      [48.78218, 9.17882, "#F5DF7A", "#2B1838", "M", "<b>Motel One Stuttgart-Mitte</b><br>Lautenschlagerstraße 14"],
       [48.78384, 9.18171, "#8C7A99", "#fff", "H", "<b>Hauptbahnhof</b>"]
     ];
     const bounds = [];
@@ -829,7 +837,7 @@
       L.marker([lat, lng], { icon: pin(c, l, t) }).addTo(map).bindPopup(popup);
       bounds.push([lat, lng]);
     });
-    map.fitBounds(bounds, { padding: [30, 30] });
+    map.fitBounds(bounds, { padding: [30, 30], maxZoom: 16 });
   })();
 </script>
 </body>

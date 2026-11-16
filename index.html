@@ -330,6 +330,10 @@
   .hotel .tag { display: inline-block; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink); background: var(--butter); padding: 2px 8px; margin-bottom: 10px; }
   .hotel p { margin: 0 0 6px; color: #DCD2E6; font-size: 15px; }
   .hotel .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: 1px; }
+  .hotel { display: flex; flex-direction: column; }
+  .hotel .price { color: var(--butter); font-weight: 500; margin-top: auto; padding-top: 6px; }
+  .hotel-link { color: var(--cream); text-decoration: none; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; border-bottom: 1px solid var(--tangerine); align-self: flex-start; padding-bottom: 2px; margin-top: 6px; }
+  .hotel-link:hover { color: var(--butter); }
   .note-small { font-size: 13px; color: #BFB2CC; text-align: center; margin: 14px 0 0; }
   #map .leaflet-tile-pane { filter: grayscale(1) contrast(.85) brightness(1.08); }
   #map { height: 380px; margin-top: 28px; border: 1px solid rgba(255,255,255,.14); }
@@ -564,22 +568,29 @@
         <span class="tag">Um die Ecke</span>
         <h3><span class="dot" style="background:#C4B2EC"></span>EmiLu Design Hotel</h3>
         <p>Nadlerstraße 4. Designhotel, etwa 2 Minuten zu Fuß zur Trauung.</p>
-        <p>Gehobene Preisklasse.</p>
+        <p class="price">ab 110 € pro Nacht</p>
+        <a class="hotel-link" href="https://www.emilu-hotel.com/de" target="_blank" rel="noopener">Zum Hotel →</a>
       </div>
       <div class="hotel">
         <span class="tag">Mit Küche</span>
         <h3><span class="dot" style="background:#F5DF7A"></span>Numa Rotebühlplatz</h3>
         <p>Rotebühlplatz 2. Moderne Zimmer und Apartments mit digitalem Check-in, etwa 4 Minuten zu Fuß.</p>
+        <p class="price">ab 130 € pro Nacht</p>
+        <a class="hotel-link" href="https://numastays.com/locations/germany/stuttgart/stuttgart-mitte/rotebuhlplatz" target="_blank" rel="noopener">Zum Hotel →</a>
       </div>
       <div class="hotel">
         <span class="tag">Klein &amp; schön</span>
         <h3><span class="dot" style="background:#F5DF7A"></span>Das Edith</h3>
         <p>Heusteigstraße 34. Kleines Designhotel mit sehr gutem Frühstück, etwa 6 Minuten zu Fuß.</p>
+        <p class="price">ab 150 € pro Nacht</p>
+        <a class="hotel-link" href="https://www.dasedith.me/" target="_blank" rel="noopener">Zum Hotel →</a>
       </div>
       <div class="hotel">
         <span class="tag">Günstig</span>
-        <h3><span class="dot" style="background:#F5DF7A"></span>Motel One Stuttgart-Mitte</h3>
-        <p>Lautenschlagerstraße 14, nah am Hauptbahnhof. Etwa 12 Minuten zu Fuß zur Trauung.</p>
+        <h3><span class="dot" style="background:#F5DF7A"></span>Motel One Hauptbahnhof</h3>
+        <p>Kriegsbergstraße 32, direkt am Hauptbahnhof. Etwa 15 Minuten zu Fuß zur Trauung.</p>
+        <p class="price">ab 100 € pro Nacht</p>
+        <a class="hotel-link" href="https://www.motel-one.com/de/hotels/stuttgart/hotel-stuttgart-hauptbahnhof" target="_blank" rel="noopener">Zum Hotel →</a>
       </div>
     </div>
     <p class="note-small">Preise schwanken je nach Datum, früh buchen lohnt sich. Angaben ohne Gewähr.</p>
@@ -829,7 +840,7 @@
       [48.77430, 9.17679, "#C4B2EC", "#2B1838", "E", "<b>EmiLu Design Hotel</b><br>Nadlerstraße 4"],
       [48.77425, 9.17395, "#F5DF7A", "#2B1838", "N", "<b>Numa Rotebühlplatz</b><br>Rotebühlplatz 2"],
       [48.77006, 9.17909, "#F5DF7A", "#2B1838", "D", "<b>Das Edith</b><br>Heusteigstraße 34"],
-      [48.78218, 9.17882, "#F5DF7A", "#2B1838", "M", "<b>Motel One Stuttgart-Mitte</b><br>Lautenschlagerstraße 14"],
+      [48.78438, 9.17723, "#F5DF7A", "#2B1838", "M", "<b>Motel One Hauptbahnhof</b><br>Kriegsbergstraße 32"],
       [48.78384, 9.18171, "#8C7A99", "#fff", "H", "<b>Hauptbahnhof</b>"]
     ];
     const bounds = [];

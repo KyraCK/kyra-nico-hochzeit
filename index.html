@@ -308,6 +308,22 @@
   .band-geschenke .intro { color: var(--ink); max-width: 600px; }
   .band-geschenke .wink { color: var(--ink); text-align: center; margin: 0 auto; }
   .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+  .polaroid { background: var(--paper); padding: 12px 12px 14px; box-shadow: 0 14px 30px rgba(0,0,0,.35); margin: 0; }
+  .polaroid img { display: block; width: 100%; height: auto; }
+  .polaroid figcaption { font-family: var(--serif); font-style: italic; font-size: 20px; color: var(--ink); text-align: center; margin-top: 10px; line-height: 1.2; }
+  .polaroid.tilt-l { transform: rotate(-3deg); }
+  .polaroid.tilt-r { transform: rotate(2.5deg); }
+  .trip { display: grid; grid-template-columns: minmax(0, 320px) 1fr; gap: 48px; align-items: center; margin-bottom: 8px; }
+  .trip .info-grid { margin: 0; grid-template-columns: 1fr; }
+  .sleep-row { display: grid; grid-template-columns: 1fr minmax(0, 300px); gap: 40px; align-items: center; margin: 56px 0 26px; }
+  .sleep-row .sub, .sleep-row .sub-intro { text-align: left; margin-left: 0; }
+  .sleep-row .sub { margin-top: 0; }
+  @media (max-width: 760px) {
+    .trip, .sleep-row { grid-template-columns: 1fr; gap: 28px; }
+    .trip .polaroid, .sleep-row .polaroid { max-width: 300px; margin: 0 auto; }
+    .sleep-row .sub, .sleep-row .sub-intro { text-align: center; margin-left: auto; }
+    .sleep-row .polaroid { order: 2; }
+  }
   .band-zusage { background: var(--lilac); }
   .band-zusage .eyebrow { color: var(--ink); }
   h2 { font-weight: 400; font-size: clamp(44px, 10vw, 68px); line-height: 1; letter-spacing: -.01em; }
@@ -562,6 +578,11 @@
   <section id="anreise" class="band band-anreise"><div class="wrap">
     <span class="eyebrow">Gut ankommen</span>
     <h2>Anreise &amp; Übernachtung</h2>
+    <div class="trip">
+    <figure class="polaroid tilt-l">
+      <img src="img/car.webp" alt="Kyra, Nico und Lemmy im Auto unterwegs" width="1000" height="750">
+      <figcaption>Wir sind schon unterwegs.</figcaption>
+    </figure>
     <div class="info-grid">
       <div class="info">
         <h3>Anreise</h3>
@@ -573,9 +594,18 @@
         <span class="tbc">Folgt</span>
       </div>
     </div>
+    </div>
 
-    <h3 class="sub">Übernachten</h3>
-    <p class="sub-intro">Für alle, die anreisen und in Stuttgart schlafen möchten: ein paar Hotels, von denen aus ihr alles zu Fuß erreicht.</p>
+    <div class="sleep-row">
+      <div>
+        <h3 class="sub">Übernachten</h3>
+        <p class="sub-intro">Für alle, die anreisen und in Stuttgart schlafen möchten: ein paar Hotels, von denen aus ihr alles zu Fuß erreicht.</p>
+      </div>
+      <figure class="polaroid tilt-r">
+        <img src="img/sleep.webp" alt="Kyra und Lemmy schlafen auf dem Sofa" width="1000" height="660">
+        <figcaption>Probeschlafen läuft.</figcaption>
+      </figure>
+    </div>
     <div class="hotels">
       <div class="hotel">
         <span class="tag">Um die Ecke</span>

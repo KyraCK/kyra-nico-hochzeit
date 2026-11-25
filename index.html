@@ -250,14 +250,14 @@
   }
   .contacts { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-top: 18px; }
   .contact {
-    background: var(--paper); border: 1px solid var(--line); padding: 16px 22px; width: 280px; max-width: 100%;
+    background: var(--paper); border: 1px solid var(--line); padding: 16px 18px; width: 300px; max-width: 100%;
     display: flex; flex-direction: column; align-items: center; gap: 8px;
   }
   .c-name { font-family: var(--serif); font-size: 20px; color: var(--plum); }
   .c-mail { color: var(--plum); text-decoration-color: var(--lilac); text-underline-offset: 3px; word-break: break-all; }
   .c-wa {
     display: inline-block; text-decoration: none; color: var(--cream); background: var(--sage);
-    border-radius: 99px; padding: 6px 16px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase;
+    border-radius: 99px; padding: 6px 14px; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; white-space: nowrap;
   }
   footer .sig { font-family: var(--serif); font-style: italic; font-size: 24px; color: var(--plum); }
 
@@ -324,6 +324,7 @@
     .sleep-row .sub, .sleep-row .sub-intro { text-align: center; margin-left: auto; }
     .sleep-row .polaroid { order: 2; }
   }
+  footer .secret { margin: 40px auto 6px; max-width: 460px; font-family: var(--serif); font-style: italic; font-size: 22px; line-height: 1.3; }
   .band-zusage { background: var(--lilac); }
   .band-zusage .eyebrow { color: var(--ink); }
   h2 { font-weight: 400; font-size: clamp(44px, 10vw, 68px); line-height: 1; letter-spacing: -.01em; }
@@ -749,6 +750,17 @@
     <div class="contact">
       <span class="c-name">Nico</span>
       <a class="c-mail" data-c="bW9jLmVscmhlb3dvY2luQG9mbmk=" href="#">E-Mail</a>
+    </div>
+  </div>
+  <p class="secret">Pssst … ihr habt ein Geheimnis vor uns? Dann sprecht mit unseren Trauzeugen. Die halten dicht.</p>
+  <div class="contacts">
+    <div class="contact">
+      <span class="c-name">Katharina Filipenko</span>
+      <a class="c-wa" data-w="Mjk0ODA2NjY2NzE5NA==" href="#" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+    <div class="contact">
+      <span class="c-name">Christopher Begenat</span>
+      <a class="c-wa" data-w="Mzc1Mjc4MjE3MTk0" href="#" target="_blank" rel="noopener">WhatsApp</a>
     </div>
   </div>
   <noscript><p>Unsere Kontaktdaten werden nur mit aktiviertem JavaScript angezeigt.</p></noscript>

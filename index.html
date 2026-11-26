@@ -329,6 +329,7 @@
   html.feier .feier-only { display: block !important; }
   html.feier .trauung-only { display: none !important; }
   html.feier .program:not(.dress) { grid-template-columns: repeat(3, 1fr); }
+  .program.dress { grid-template-columns: repeat(3, 1fr); max-width: 560px; margin-left: auto; margin-right: auto; }
   .kids-note { font-style: italic; }
   .band-zusage { background: var(--lilac); }
   .band-zusage .eyebrow { color: var(--ink); }
@@ -529,12 +530,12 @@
       </li>
       <li>
         <svg viewBox="0 0 80 80" aria-hidden="true">
-          <path d="M33 8 L32 24 M47 8 L48 24"/>
-          <path d="M32 24 Q40 28 48 24 L46 38 Q40 40 34 38 Z"/>
-          <path d="M34 38 L19 70 Q40 75 61 70 L46 38"/>
-          <path d="M36 48 L31 68 M44 48 L49 68"/>
+          <path d="M24 10 H56 L60 72 H44 L40 32 L36 72 H20 Z"/>
+          <path d="M24 17 H56"/>
+          <path d="M40 17 V32"/>
+          <path d="M28 17 Q29 25 36 26 M52 17 Q51 25 44 26"/>
         </svg>
-        <span class="p-time">Kleid?</span>
+        <span class="p-time">Jeans?</span>
         <span class="p-label">Gern</span>
       </li>
       <li>
@@ -545,15 +546,6 @@
         </svg>
         <span class="p-time">Sneaker?</span>
         <span class="p-label">Auch</span>
-      </li>
-      <li>
-        <svg viewBox="0 0 80 80" aria-hidden="true">
-          <ellipse cx="40" cy="44" rx="13" ry="26"/>
-          <path d="M40 26 V34 M40 34 Q31 38 28 50 M40 34 Q49 38 52 50"/>
-          <path d="M16 70 L64 18" stroke-width="2.4"/>
-        </svg>
-        <span class="p-time">Flipflops?</span>
-        <span class="p-label">Lieber nicht</span>
       </li>
     </ul>
     <div class="split split-dress">

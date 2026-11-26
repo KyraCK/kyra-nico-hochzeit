@@ -325,6 +325,10 @@
     .sleep-row .polaroid { order: 2; }
   }
   footer .secret { margin: 40px auto 6px; max-width: 460px; font-family: var(--serif); font-style: italic; font-size: 22px; line-height: 1.3; }
+  .feier-only { display: none !important; }
+  html.feier .feier-only { display: block !important; }
+  html.feier .trauung-only { display: none !important; }
+  html.feier .program:not(.dress) { grid-template-columns: repeat(3, 1fr); }
   .band-zusage { background: var(--lilac); }
   .band-zusage .eyebrow { color: var(--ink); }
   h2 { font-weight: 400; font-size: clamp(44px, 10vw, 68px); line-height: 1; letter-spacing: -.01em; }
@@ -447,7 +451,7 @@
 
     <h2>Der Tag</h2>
     <ul class="program">
-      <li>
+      <li class="trauung-only">
         <svg viewBox="0 0 80 80" aria-hidden="true">
           <path d="M23 30 L27 24 H35 L39 30 L31 38 Z M23 30 H39 M27 24 L31 30 L35 24"/>
           <path d="M17 22 l-4 -3 M31 15 v-5 M45 22 l4 -3"/>
@@ -490,7 +494,11 @@
     </ul>
 
     <div class="info-grid">
-      <div class="info">
+      <div class="info feier-only">
+        <h3>Trauung</h3>
+        <p>Die Trauung feiern wir im ganz kleinen Kreis. Umso mehr freuen wir uns, danach mit euch zu feiern.</p>
+      </div>
+      <div class="info trauung-only">
         <h3>Trauung</h3>
         <p>Um 14:00 Uhr in der Stiftung Geißstraße 7, Geißstraße 7, 70173 Stuttgart. Der Trausaal liegt im ersten Stock und ist nicht barrierefrei. Sagt uns Bescheid, wenn ihr Hilfe braucht.</p>
       </div>
@@ -767,6 +775,16 @@
 </footer>
 
 <script>
+  // Einladung nur zu Essen und Feier: Link mit ?feier blendet die Trauungsdetails aus
+  (function () {
+    let feier = new URLSearchParams(location.search).has("feier");
+    try {
+      if (feier) localStorage.setItem("einladung", "feier");
+      else if (localStorage.getItem("einladung") === "feier") feier = true;
+    } catch (e) {}
+    if (feier) document.documentElement.classList.add("feier");
+  })();
+
   // Adresse der Google-Apps-Script-Web-App. Solange leer, zeigt das Formular einen Hinweis.
   const RSVP_ENDPOINT = "https://script.google.com/macros/s/AKfycbyeTgneHrKB06qV2vYAlC3uWuDdhmEXGftQ55dbMLxdCb7FyHMhIfpQaH0s9fK63qM/exec";
 

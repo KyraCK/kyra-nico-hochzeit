@@ -777,16 +777,8 @@
 
 <script>
   // Einladung nur zu Essen und Feier: Link mit ?feier blendet die Trauungsdetails aus
-  (function () {
-    const q = new URLSearchParams(location.search);
-    let feier = q.has("feier");
-    try {
-      if (q.has("alle")) localStorage.removeItem("einladung");
-      else if (feier) localStorage.setItem("einladung", "feier");
-      else if (localStorage.getItem("einladung") === "feier") feier = true;
-    } catch (e) {}
-    if (feier) document.documentElement.classList.add("feier");
-  })();
+  if (new URLSearchParams(location.search).has("feier")) document.documentElement.classList.add("feier");
+  try { localStorage.removeItem("einladung"); } catch (e) {}
 
   // Adresse der Google-Apps-Script-Web-App. Solange leer, zeigt das Formular einen Hinweis.
   const RSVP_ENDPOINT = "https://script.google.com/macros/s/AKfycbyeTgneHrKB06qV2vYAlC3uWuDdhmEXGftQ55dbMLxdCb7FyHMhIfpQaH0s9fK63qM/exec";

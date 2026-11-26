@@ -700,6 +700,15 @@
       </fieldset>
 
       <div class="only-yes" hidden>
+        <fieldset class="trauung-only">
+          <legend>Seid ihr schon bei der Trauung dabei?</legend>
+          <p class="hint">Der Trausaal ist klein, deshalb planen wir die Plätze genau. Wenn es für euch entspannter ist, erst danach dazuzukommen, zum Beispiel mit Kindern, ist das völlig in Ordnung.</p>
+          <div class="choice">
+            <label><input type="radio" name="trauung" value="Ja"> Ja, auch bei der Trauung</label>
+            <label><input type="radio" name="trauung" value="danach"> Wir kommen erst danach dazu</label>
+          </div>
+        </fieldset>
+
         <fieldset>
           <legend>Kinder</legend>
           <p class="hint">Nur falls es nicht anders geht: Name und Alter, damit wir beim Essen gut planen können.</p>
@@ -877,7 +886,7 @@
     }
 
     const payload = {
-      zusage,
+      zusage: (zusage === "Ja" && f.get("trauung") === "danach") ? "Ja, erst nach der Trauung" : zusage,
       erwachsene: names,
       kinder: children,
       abend: zusage === "Ja" ? (f.get("abend") || "") : "",

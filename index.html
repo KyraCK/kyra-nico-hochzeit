@@ -777,9 +777,11 @@
 <script>
   // Einladung nur zu Essen und Feier: Link mit ?feier blendet die Trauungsdetails aus
   (function () {
-    let feier = new URLSearchParams(location.search).has("feier");
+    const q = new URLSearchParams(location.search);
+    let feier = q.has("feier");
     try {
-      if (feier) localStorage.setItem("einladung", "feier");
+      if (q.has("alle")) localStorage.removeItem("einladung");
+      else if (feier) localStorage.setItem("einladung", "feier");
       else if (localStorage.getItem("einladung") === "feier") feier = true;
     } catch (e) {}
     if (feier) document.documentElement.classList.add("feier");
